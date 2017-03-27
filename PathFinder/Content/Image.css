@@ -1,5 +1,11 @@
-﻿body {
-    background-color: #6699ff;
+﻿:root {
+    --body-background: #99bbff;
+    --homepage-box: #b3ccff;
+    --h1color: #0033cc;
+}
+
+body {
+    background-color: var(--body-background);
 }
 
 .Logo {
@@ -22,17 +28,33 @@
 }
 
 .homepage-box {
-    background-color: #b3ccff;
+    background-color: var(--homepage-box);
     height: 100%;
     border-style: solid;
     border-width: 2px;
+}
+
+.product-box {
+    background-color: red;
+    height: 300px;
+    margin: 25px;
+
+}
+
+.product-box :hover{
+    background-color: royalblue;
+}
+
+#keyboard-icon {
+    width: 200px;
+    height: 100px;
 }
 
 
 h1{
     font-family: 'Exo', sans-serif;
     font-size: 350%;
-    color: #0033cc;
+    color: var(--h1color);
 }
 
 h4 {
@@ -53,4 +75,8 @@ p {
    position:absolute;
    bottom:0px;
    height:40px;
+}
+
+#chevron-right {
+    color: #6699ff;
 }
