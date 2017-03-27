@@ -17,3 +17,21 @@
     width: 30px;
     margin: -5px;
 }
+
+.homepage-box {
+    background-color: #b3ccff;
+    height: 100%;
+    border-style: solid;
+    border-width: 2px;
+}
+
+
+h1, h3{
+    font-family: 'Exo', sans-serif;
+    font-size: 350%;
+    color: #0033cc;
+}
+
+p {
+    font-family: 'Exo', sans-serif;
+}

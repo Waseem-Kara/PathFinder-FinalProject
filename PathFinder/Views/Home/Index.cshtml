@@ -1,7 +1,48 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    
+}
+<head>
+    <title>PathFinder homepage</title>
+    <link href="@Url.Content("~/Content/Image.css")" rel="stylesheet" type="text/css"/>
+</head>
+
+@using (Html.BeginForm())
+{
+    <div class="text-center" style="background-color: transparent">
+        <h1 style="font-size: 500%">PathFinder</h1>
+        <img src="~/Content/PathFinderlogo.png" />
+        <h1>Welcome</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 homepage-box">
+                <h3>Accessories
+                    <a href="#" class="glyphicon glyphicon-chevron-right"></a>
+                </h3>
+                <p>Reliable products from leading brands</p>
+            </div>
+            <div class="col-sm-4 homepage-box">
+                <h3>Keyboards
+                    <a href="#" class="glyphicon glyphicon-chevron-right"></a>
+                </h3>
+                <p>Browse unique keyboards</p>
+            </div>
+            <div class="col-sm-4 homepage-box">
+                <h3>
+                    Software
+                    <a href="#" class="glyphicon glyphicon-chevron-right"></a>
+                </h3>
+                <p>Choose from the latest technology</p>
+            </div>
+        </div>
+    </div>
 }
 
-<h2>Index</h2>
+
+
+
+
+
 
