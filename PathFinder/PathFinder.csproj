@@ -111,6 +111,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\PathFinder.mdf" />
+    <Content Include="App_Data\PathFinder_log.ldf">
+      <DependentUpon>PathFinder.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\AddUserIcon.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -159,7 +163,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
