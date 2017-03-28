@@ -13,57 +13,67 @@
     <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-fixed-top" style="background-color: #b3ccff">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/PathFinderlogo.png")" class="navbar-brand Logo" alt="PathFinder" /><span class="navbar-brand">PathFinder</span></a>
-            </div>
+<nav class="navbar navbar-fixed-top" style="background-color: #b3ccff">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/PathFinderlogo.png")" class="navbar-brand Logo" alt="PathFinder" /><span class="navbar-brand">PathFinder</span></a>
+        </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Accessories</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Keyboards</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Software</a></li>
-                        </ul>
-                    </li>
-                </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Accessories</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Keyboards</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Software</a></li>
+                    </ul>
+                </li>
+            </ul>
                 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Log in</a></li>
-                            <li><a href="#">Sign up</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn glyphicon glyphicon-search" style="background-color: transparent; color: white; margin: -5px"></button>
-                </form>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Log in</a></li>
+                        <li><a href="#">Sign up</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn glyphicon glyphicon-search" style="background-color: transparent; color: white; margin: -5px"></button>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+   
+    @*Modal Container*@
+<div id="modal-container" class="modal fade" tabindex="-1" role="dialog" style="border: 5px solid black">
+    <a href="#close" title="Close" class="modal-close-btn">X</a>
+    <div class="modal-content" style="width: 500px !important; margin: 10px auto !important">
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>
 
-    <div class="container body-content">
+<div class="container body-content">
         @RenderBody()
         <footer id="footer">
             <p>&copy; @DateTime.Now.Year - Waseem Kara</p>
@@ -72,6 +82,31 @@
 
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+    
+<script type="text/javascript">
+    $(function ()
+    {
+        $('body')
+            .on('click',
+                '.modal-link',
+                function(e) {
+                    e.preventDefault();
+                    $(this).attr('data-target', '#modal-container');
+                    $(this).attr('data-target', 'modal');
+                });
+        $('body')
+            .on('click',
+                '.modal-close-btn',
+                function() {
+                    $('#modal-container').modal('hide');
+                });
+        $('#modal-container')
+            .on('hidden.bs.modal',
+                function() {
+                    $(this).removeData('bs.modal');
+                });
+    });
+</script>
 </body>
 </html>
