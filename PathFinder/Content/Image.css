@@ -35,10 +35,10 @@ body {
 }
 
 .product-box {
-    background-color: red;
+    background-color: white;
     height: 300px;
-    margin: 25px;
-
+    margin: 15px;
+    text-align: center;
 }
 
 .product-box :hover{
@@ -55,6 +55,11 @@ h1{
     font-family: 'Exo', sans-serif;
     font-size: 350%;
     color: var(--h1color);
+}
+
+h3 {
+    font-family: 'Exo', sans-serif;
+    color: white;
 }
 
 h4 {
