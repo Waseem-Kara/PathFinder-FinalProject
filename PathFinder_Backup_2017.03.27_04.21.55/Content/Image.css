@@ -1,0 +1,82 @@
+﻿:root {
+    --body-background: #99bbff;
+    --homepage-box: #b3ccff;
+    --h1color: #0033cc;
+}
+
+body {
+    background-color: var(--body-background);
+}
+
+.Logo {
+    height: 50px;
+    width: 100px;
+    padding: 3px;
+}
+
+.SearchIcon {
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    color: white;
+}
+
+.AddUserIcon {
+    height: 30px;
+    width: 30px;
+    margin: -5px;
+}
+
+.homepage-box {
+    background-color: var(--homepage-box);
+    height: 100%;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.product-box {
+    background-color: red;
+    height: 300px;
+    margin: 25px;
+
+}
+
+.product-box :hover{
+    background-color: royalblue;
+}
+
+#keyboard-icon {
+    width: 200px;
+    height: 100px;
+}
+
+
+h1{
+    font-family: 'Exo', sans-serif;
+    font-size: 350%;
+    color: var(--h1color);
+}
+
+h4 {
+    font-family: 'Exo', sans-serif;
+    color: white;
+}
+
+a {
+    font-family: 'Exo', sans-serif;
+}
+
+p {
+    font-family: 'Exo', sans-serif;
+    color: white;
+}
+
+#footer {
+   position:absolute;
+   bottom:0px;
+   height:40px;
+}
+
+#chevron-right {
+    color: #6699ff;
+}
