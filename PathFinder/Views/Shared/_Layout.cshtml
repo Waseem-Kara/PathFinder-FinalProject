@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@model PathFinder.Models.Account
 
 <!DOCTYPE html>
 <html>
@@ -48,8 +49,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Log in</a></li>
-                        <li><a href="#">Sign up</a></li>
+                        <li><a>Log in</a></li>
+                        <li><a data-toggle="modal" data-target="#myModal">Sign up</a></li>
                     </ul>
                 </li>
             </ul>
@@ -63,18 +64,67 @@
     </div><!-- /.container-fluid -->
 </nav>
    
-    @*Modal Container*@
-<div id="modal-container" class="modal fade" tabindex="-1" role="dialog" style="border: 5px solid black">
-    <a href="#close" title="Close" class="modal-close-btn">X</a>
-    <div class="modal-content" style="width: 500px !important; margin: 10px auto !important">
-        <div class="modal-body">
-            
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="background-color: wheat">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Register to PathFinder</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("Index", "Account", FormMethod.Post))
+                    {
+                        <div class="control-group">
+                            <!-- Username -->
+                            <label class="control-label" for="username">Username</label>
+                            <div class="controls">
+                                <input type="text" id="username" name="username" placeholder="Username" class="input-xlarge" required>
+                                <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- E-mail -->
+                            <label class="control-label" for="email">E-mail</label>
+                            <div class="controls">
+                                <input type="text" id="email" name="email" placeholder="abc@123.com" class="input-xlarge" required>
+                                <p class="help-block">Please provide your E-mail</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Password-->
+                            <label class="control-label" for="password">Password</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(m => m.Password, new {@type = "password", @placeholder = "Password", @class = "input-group-lg"})
+                                <input type="password" id="password" name="password" placeholder="Password" class="input-xlarge" required>
+                                <p class="help-block">Password should be at least 4 characters</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                            <div class="controls">
+                                
+                                <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm password" class="input-xlarge">
+                                <p class="help-block">Please confirm password</p>
+                            </div>
+                        </div>
+
+                            }
+                        </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
 <div class="container body-content">
         @RenderBody()
+        
         <footer id="footer">
             <p>&copy; @DateTime.Now.Year - Waseem Kara</p>
         </footer>
@@ -84,29 +134,5 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
     
-<script type="text/javascript">
-    $(function ()
-    {
-        $('body')
-            .on('click',
-                '.modal-link',
-                function(e) {
-                    e.preventDefault();
-                    $(this).attr('data-target', '#modal-container');
-                    $(this).attr('data-target', 'modal');
-                });
-        $('body')
-            .on('click',
-                '.modal-close-btn',
-                function() {
-                    $('#modal-container').modal('hide');
-                });
-        $('#modal-container')
-            .on('hidden.bs.modal',
-                function() {
-                    $(this).removeData('bs.modal');
-                });
-    });
-</script>
 </body>
 </html>
