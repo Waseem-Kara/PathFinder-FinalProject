@@ -73,47 +73,7 @@
                     <h4 class="modal-title" id="myModalLabel">Register to PathFinder</h4>
                 </div>
                 <div class="modal-body">
-                    @using (Html.BeginForm("Index", "Account", FormMethod.Post))
-                    {
-                        <div class="control-group">
-                            <!-- Username -->
-                            <label class="control-label" for="username">Username</label>
-                            <div class="controls">
-                                <input type="text" id="username" name="username" placeholder="Username" class="input-xlarge" required>
-                                <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <!-- E-mail -->
-                            <label class="control-label" for="email">E-mail</label>
-                            <div class="controls">
-                                <input type="text" id="email" name="email" placeholder="abc@123.com" class="input-xlarge" required>
-                                <p class="help-block">Please provide your E-mail</p>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <!-- Password-->
-                            <label class="control-label" for="password">Password</label>
-                            <div class="controls">
-                                @Html.TextBoxFor(m => m.Password, new {@type = "password", @placeholder = "Password", @class = "input-group-lg"})
-                                <input type="password" id="password" name="password" placeholder="Password" class="input-xlarge" required>
-                                <p class="help-block">Password should be at least 4 characters</p>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <!-- Password -->
-                            <label class="control-label" for="password_confirm">Password (Confirm)</label>
-                            <div class="controls">
-                                
-                                <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm password" class="input-xlarge">
-                                <p class="help-block">Please confirm password</p>
-                            </div>
-                        </div>
-
-                            }
+                    
                         </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -131,8 +91,18 @@
     </div>
 
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+
+    $('#user_content').load(@Url.Action("Index", "Account"));
+    
+    $(document).on("click", ".modalform", function ({
+        var element = $(this)
+    element.data()
+    }))
+</script>
+
     
 </body>
 </html>

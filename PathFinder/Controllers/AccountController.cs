@@ -15,10 +15,19 @@ namespace PathFinder.Controllers
             return PartialView("_Registration");
         }
 
-        [HttpPost]
-        public ActionResult Index(Account model)
+        public ActionResult RegisterUser()
         {
-            return ProcessAccount("Registration complete");
+            return View("_Registration");
+        }
+
+        [HttpPost]
+        public ActionResult RegisterUser(Account model)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("~/Views/Home/Index")
+            }
+            return View("_Registration");
         }
 
         ActionResult ProcessAccount(string message)
