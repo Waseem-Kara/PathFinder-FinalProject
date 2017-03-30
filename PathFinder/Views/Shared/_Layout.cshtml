@@ -119,7 +119,9 @@
         });
 
         //Submit modal
-        $(document).on("click","#submit-button",function() {
+        $(document).on("click", "#submit-button", function () {
+
+            //if ($("username").val() === undefined) return null;
 
             var $form = $("#myModal").find(".modal-body").find("form")[0];
             var formData = new FormData($form);
