@@ -8,6 +8,7 @@ namespace PathFinder.Models
 {
     public class Account
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "Please enter a Firstname")]
         [Display(Name = "Firstname")]
         public string Firstname { get; set; }

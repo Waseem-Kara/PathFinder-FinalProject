@@ -1,7 +1,11 @@
 ﻿@using PathFinder.Models
 @model PathFinder.Models.Account
     
- @using (Html.BeginForm("Index", "Account", FormMethod.Post))
+@{
+    Layout = null;
+}
+    
+@using (Html.BeginForm("RegisterUser", "Account", FormMethod.Post))
  {
     <div class="control-group">
         <!-- Username -->
