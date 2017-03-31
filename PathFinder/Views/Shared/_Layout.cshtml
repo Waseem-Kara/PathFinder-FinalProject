@@ -10,6 +10,7 @@
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/Image.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/fonts/font-awesome/css/font-awesome.min.css")" rel="stylesheet"/>
     <script src="@Url.Content("~/Scripts/modernizr-2.6.2.js")"></script>
     <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 </head>
@@ -67,17 +68,16 @@
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
-            <div class="modal-content" style="background-color: wheat">
+            <div class="modal-content" style="background-color: #b3ccff">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Register to PathFinder</h4>
                 </div>
                 <div class="modal-body">
                     
                         </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <input type="button" name="submit" id="submit-button" value="Submit" class="btn btn-primary">
+                    <button type="button" name="submit" id="submit-button" value="Submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>
@@ -134,7 +134,7 @@
                 type: "POST"
 
         }).done(function() {
-            $("#myModal").hide();
+            
 
             }).fail(function(error) {
                 
