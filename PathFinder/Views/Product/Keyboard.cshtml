@@ -4,50 +4,120 @@
 }
 
 <div class="text-center" style="background-color: transparent">
-    <h1 style="font-size: 500%">Keyboards<img id="keyboard-icon" src="~/Content/Keyboard-icon.png" alt="" /></h1>
+    <h1 style="font-size: 500%">Keyboards <i class="fa fa-keyboard-o"></i> </h1>
 </div>
 
 <div class="container">
     <div class="col-lg-4 col-md-6 col-xs-12">
         <div class="product-box">
-            
+            <i class="fa fa-keyboard-o centered" style="font-size: 400%"></i>
         </div>
         <h3 style="text-align: center">Stalker 5</h3>
     </div>
     
     <div class="col-lg-4 col-md-6 col-xs-12">
         <div class="product-box">
-
+            <i class="fa fa-keyboard-o centered" style="font-size: 400%"></i>
         </div>
         <h3 style="text-align: center">Model-E</h3>
     </div>
     
     <div class="col-lg-4 col-md-6 col-xs-12">
         <div class="product-box">
-
+            <i class="fa fa-keyboard-o centered" style="font-size: 400%"></i>
         </div>
         <h3 style="text-align: center">DeathStalker</h3>
     </div>
     
     <div class="col-lg-4 col-md-6 col-xs-12">
         <div class="product-box">
-
+            <i class="fa fa-keyboard-o centered" style="font-size: 400%"></i>
         </div>
         <h3 style="text-align: center">Ergo</h3>
     </div>
     
     <div class="col-lg-4 col-md-6 col-xs-12">
         <div class="product-box">
-
+            <i class="fa fa-keyboard-o centered" style="font-size: 400%"></i>
         </div>
         <h3 style="text-align: center">Death Adder</h3>
     </div>
     
     <div class="col-lg-4 col-md-6 col-xs-12">
         <div class="product-box">
-            <h1>Keyboard image</h1>
+            <i class="fa fa-keyboard-o centered product-desc" style="font-size: 400%" data-toggle="modal" href="#productModal" data-url="@Url.Action("ProductDescription","Product")"></i>
         </div>
         <h3 style="text-align: center">Avenger</h3>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                <button class="btn" id="submit-button"><i class="fa fa-shopping-cart"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+
+        //Load modal
+        $(document).on("click", ".product-desc", function () { 
+
+            var $ele = $(this);
+            var $modal = $("#productModal");
+
+            $.ajax({
+                url: $ele.data("url"),
+                type:"GET"
+
+            }).done(function (data) {
+
+                $modal.find(".modal-body").html($("<div></div>").html(data));
+
+            }).fail(function(error) {
+                //do something with it
+            });
+
+
+        });
+
+        //Submit modal
+        $(document).on("click", "#submit-button", function () {
+
+            //if ($("username").val() === undefined) return null;
+
+            var $form = $("#productModal").find(".modal-body").find("form")[0];
+            var formData = new FormData($form);
+
+            $.ajax({
+                url: $("#productModal").find(".modal-body").find("form").attr("action"),
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST"
+
+        }).done(function() {
+
+
+            }).fail(function(error) {
+
+            });
+        });
+
+    });
+</script>
 

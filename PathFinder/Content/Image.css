@@ -1,11 +1,7 @@
-﻿:root {
-    --body-background: #99bbff;
-    --homepage-box: #b3ccff;
-    --h1color: #0033cc;
-}
-
+﻿
 body {
-    background-color: var(--body-background);
+    /*background-color: #e6f2ff;*/
+    background-color: #666666;
 }
 
 .Logo {
@@ -28,51 +24,49 @@ body {
 }
 
 .homepage-box {
-    background-color: var(--homepage-box);
-    height: 100%;
-    border-style: solid;
-    border-width: 2px;
+    background-color: grey;
+    text-align: center;
+    
+}
+.homepage-box:hover {
+    border: 2px solid red;
+}
+.homepage-box:link {
+    text-decoration: none;
 }
 
 .product-box {
     background-color: white;
     height: 300px;
     margin: 15px;
-    text-align: center;
+
 }
 
-.product-box :hover{
-    background-color: royalblue;
+.product-box:hover {
+    background-color: #ff4d4d;
+    border: 5px solid red;
 }
 
 #keyboard-icon {
     width: 200px;
     height: 100px;
+    margin: 40%;
 }
 
 
 h1{
     font-family: 'Exo', sans-serif;
     font-size: 350%;
-    color: var(--h1color);
+    color: white;
 }
 
-h3 {
+
+h3, h4, p, a {
     font-family: 'Exo', sans-serif;
     color: white;
 }
 
-h4 {
-    font-family: 'Exo', sans-serif;
-    color: white;
-}
-
-a {
-    font-family: 'Exo', sans-serif;
-}
-
-p {
-    font-family: 'Exo', sans-serif;
+label {
     color: white;
 }
 
@@ -83,10 +77,16 @@ p {
 }
 
 #chevron-right {
-    color: #6699ff;
+    color: red;
 }
 
 
-.modalform {
+.modal-content {
+    background-color: #666666;   
+}
+
+.centered {
+    padding: 42%;
+    text-align: center;
     
 }

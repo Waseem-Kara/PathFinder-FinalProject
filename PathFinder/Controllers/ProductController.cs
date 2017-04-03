@@ -23,5 +23,10 @@ namespace PathFinder.Controllers
         {
             return View("Software");
         }
+
+        public ActionResult ProductDescription()
+        {
+            return View("_ProductDescription");
+        }
     }
 }

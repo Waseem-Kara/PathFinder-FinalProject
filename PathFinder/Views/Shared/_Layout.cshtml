@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-fixed-top" style="background-color: #b3ccff">
+<nav class="navbar navbar-fixed-top" style="background-color: black">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -36,17 +36,17 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Accessories</a></li>
+                        <li><a href="@Url.Action("Accessories", "Product")">Accessories</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Keyboards</a></li>
+                        <li><a href="@Url.Action("Index", "Product")">Keyboards</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Software</a></li>
+                        <li><a href="@Url.Action("Software", "Product")">Software</a></li>
                     </ul>
                 </li>
             </ul>
                 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul class="dropdown-menu">
@@ -68,7 +68,7 @@
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
-            <div class="modal-content" style="background-color: #b3ccff">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>

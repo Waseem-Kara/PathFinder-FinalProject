@@ -41,13 +41,13 @@ namespace PathFinder.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View("_Registration", new Account());
+            return View("_Login", new Account());
         }
 
         [HttpPost]
         public ActionResult Login(Account model)
         {
-            if (!ModelState.IsValid) return View("_Registration", model);
+            if (!ModelState.IsValid) return View("~/Views/Home/Index.cshtml", model);
 
             using (var conn = DatabaseConnection.PathFinderDb)
             {
@@ -55,7 +55,7 @@ namespace PathFinder.Controllers
                 if (personList.Any(x => x.Email == model.Email && x.Password == model.Password))
                     return View("~/Views/Home/Index.cshtml");
                 ModelState.AddModelError("Username", "Username or password field is invalid...");
-                return View("_Registration", model);
+                return View("_Login", model);
             }
         }
     }

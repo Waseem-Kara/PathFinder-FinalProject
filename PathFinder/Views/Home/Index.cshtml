@@ -1,45 +1,49 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    
 }
 <head>
     <title>PathFinder homepage</title>
 </head>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Home"))
 {
     <div class="text-center" style="background-color: transparent">
         <h1 style="font-size: 500%">PathFinder</h1>
-        <img src="~/Content/PathFinderlogo.png" />
-        <h1>Welcome</h1>
+        <img src="~/Content/PathFinderlogo.png"/>
     </div>
-    <div class="container">
+
+    <div class="container" style="padding-top: 100px">
         <div class="row">
-            <a href="@Url.Action("Accessories", "Product")" class="col-sm-4 homepage-box">
+            <div class="col-sm-4 homepage-box">
+                <a href="@Url.Action("Accessories", "Product")">
                     <h1>
                         Accessories
                         <p class="glyphicon glyphicon-chevron-right" id="chevron-right"></p>
                     </h1>
-                    <h4>Reliable products from leading brands</h4>
-            </a>
-            <a href="@Url.Action("Index", "Product")" class="col-sm-4 homepage-box">
+                </a>
+                <h4>Reliable products from leading brands</h4>
+            </div>
 
+            <div class="col-sm-4 homepage-box">
+                <a href="@Url.Action("Index", "Product")">
                     <h1>
                         Keyboards
                         <p class="glyphicon glyphicon-chevron-right" id="chevron-right"></p>
                     </h1>
-                    <h4>Browse unique keyboards</h4>
+                </a>
+                <h4>Browse unique keyboards</h4>
+            </div>
 
-            </a>
-            <a href="@Url.Action("Software", "Product")" class="col-sm-4 homepage-box">
+            <div class="col-sm-4 homepage-box">
+                <a href="@Url.Action("Software", "Product")">
                     <h1>
                         Software
                         <p class="glyphicon glyphicon-chevron-right" id="chevron-right"></p>
                     </h1>
-                    <h4>Choose from the latest technology</h4>
-            </a>
-        
+                </a>
+                <h4>Choose from the latest technology</h4>
+            </div>
         </div>
     </div>
 }

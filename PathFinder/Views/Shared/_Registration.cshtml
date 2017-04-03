@@ -1,4 +1,5 @@
-﻿@using PathFinder.Models
+﻿@using System.Activities.Statements
+@using PathFinder.Models
 @model Account
 
 @{
@@ -7,62 +8,16 @@
 
 @using (Html.BeginForm("RegisterUser", "Account", FormMethod.Post))
 {
-    @*<div class="control-group">
-        <!-- Firstname -->
-        <label class="control-label">@Html.LabelFor(m => m.Firstname)</label>
-        <div class="controls">
-            @Html.TextBoxFor(m => m.Firstname, new {type = "text", placeholder = "First name", @class = "input-group-lg form-control"})
-            <p>@Html.ValidationMessageFor(m => m.Firstname)</p>
-            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-        </div>
-    </div>
-
-    <div class="control-group">
-        <!-- Lastname -->
-        <label class="control-label">@Html.LabelFor(m => m.Lastname)</label>
-        <div class="controls">
-            @Html.TextBoxFor(m => m.Lastname, new { type = "text", placeholder = "Last name", @class = "input-group-lg form-control" })
-            <p>@Html.ValidationMessageFor(m => m.Lastname)</p>
-        </div>
-    </div>
-
-    <div class="control-group">
-        <!-- E-mail -->
-        <label class="control-label">@Html.LabelFor(m => m.Email)</label>
-        <div class="controls">
-            @Html.TextBoxFor(m => m.Email, new {type = "email", placeholder = "123@abc.com", @class = "input-group-lg form-control"})
-            <p>@Html.ValidationMessageFor(m => m.Email)</p>
-        </div>
-    </div>
-
-    <div class="control-group">
-        <!-- Password-->
-        <label class="control-label">@Html.LabelFor(m => m.Password)</label>
-        <div class="controls">
-            @Html.PasswordFor(m => m.Password, new {type = "password", placeholder = "Password", @class = "input-group-lg form-control"})
-            <p>@Html.ValidationMessageFor(m => m.Password)</p>
-        </div>
-    </div>
-
-    <div class="control-group">
-        <!-- Confirm Password -->
-        <label class="control-label">@Html.LabelFor(m => m.ComparePassword)</label>
-        <div class="controls">
-            @Html.PasswordFor(m => m.ComparePassword, new {type = "password", placeholder = "Confirm password", @class = "input-group-lg form-control"})
-            <p>@Html.ValidationMessageFor(m => m.ComparePassword)</p>
-        </div>
-    </div>*@
-
+    @Html.ValidationSummary(true)
     <div class="container">
         <div class="row main">
             <div class="panel-heading">
                 <div class="panel-title text-center">
                     <h1 class="title">Register</h1>
-                    <hr />
                 </div>
             </div>
             <div class="main-login main-center">
-                <form class="form-horizontal" method="post" action="#">
+                <form class="form-horizontal" id="loginForm">
 
                     <div class="form-group">
                         <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Firstname)</label>
@@ -70,6 +25,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                                 @Html.TextBoxFor(m => m.Firstname, new { type = "text", placeholder = "First name", @class = "input-group-lg form-control" })
+                                @Html.ValidationMessageFor(m => m.Firstname)
                             </div>
                         </div>
                     </div>
@@ -80,6 +36,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                                 @Html.TextBoxFor(m => m.Lastname, new { type = "text", placeholder = "Last name", @class = "input-group-lg form-control" })
+                                @Html.ValidationMessageFor(m => m.Lastname)
                             </div>
                         </div>
                     </div>
@@ -90,6 +47,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                                 @Html.TextBoxFor(m => m.Email, new { type = "email", placeholder = "123@abc.com", @class = "input-group-lg form-control" })
+                                @Html.ValidationMessageFor(m => m.Email)
                             </div>
                         </div>
                     </div>
@@ -99,7 +57,8 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                @Html.PasswordFor(m => m.Password, new {id = "password", type = "password", placeholder = "Password", @class = "input-group-lg form-control"})
+                                @Html.PasswordFor(m => m.Password, new {name="password", id = "password", type = "password", placeholder = "Password", @class = "input-group-lg form-control"})
+                                @Html.ValidationMessageFor(m => m.Password)
                             </div>
                         </div>
                     </div>
@@ -109,15 +68,17 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                                 @Html.PasswordFor(m => m.ComparePassword, new { type = "password", placeholder = "Confirm password", @class = "input-group-lg form-control" })
+                                @Html.ValidationMessageFor(m => m.ComparePassword)
                             </div>
                         </div>
                     </div>
-                    <div class="form-group ">
-                        <button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-                    </div>
+                    
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             </div>
         </div>
     </div>
 }
+
 
