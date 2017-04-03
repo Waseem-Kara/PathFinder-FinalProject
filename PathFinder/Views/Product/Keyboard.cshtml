@@ -45,15 +45,15 @@
     
     <div class="col-lg-4 col-md-6 col-xs-12">
         <div class="product-box">
-            <i class="fa fa-keyboard-o centered product-desc" style="font-size: 400%" data-toggle="modal" href="#productModal" data-url="@Url.Action("ProductDescription","Product")"></i>
+            <i class="fa fa-keyboard-o centered form-popup" style="font-size: 400%" data-toggle="modal" href="#myModal" data-url="@Url.Action("ProductDescription","Product")"></i>
+            <div class=""></div>
         </div>
         <h3 style="text-align: center">Avenger</h3>
     </div>
 </div>
 
-
 <!-- Modal -->
-<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -62,23 +62,20 @@
             <div class="modal-body">
 
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                <button class="btn" id="submit-button"><i class="fa fa-shopping-cart"></i></button>
-            </div>
         </div>
     </div>
 </div>
 
 <script>
+
     $(document).ready(function() {
 
         //Load modal
-        $(document).on("click", ".product-desc", function () { 
+        $(document).on("click", ".form-popup", function () {
 
             var $ele = $(this);
-            var $modal = $("#productModal");
+            var $modal = $("#myModal");
 
             $.ajax({
                 url: $ele.data("url"),
@@ -100,11 +97,11 @@
 
             //if ($("username").val() === undefined) return null;
 
-            var $form = $("#productModal").find(".modal-body").find("form")[0];
+            var $form = $("#myModal").find(".modal-body").find("form")[0];
             var formData = new FormData($form);
 
             $.ajax({
-                url: $("#productModal").find(".modal-body").find("form").attr("action"),
+                url: $("#myModal").find(".modal-body").find("form").attr("action"),
                 data: formData,
                 processData: false,
                 contentType: false,
@@ -119,5 +116,8 @@
         });
 
     });
-</script>
 
+
+
+
+</script>

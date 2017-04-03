@@ -1,7 +1,7 @@
 ﻿
 body {
     /*background-color: #e6f2ff;*/
-    background-color: #666666;
+    background-color: #ff9900;
 }
 
 .Logo {
@@ -45,7 +45,11 @@ body {
 .product-box:hover {
     background-color: #ff4d4d;
     border: 5px solid red;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
 }
+
 
 #keyboard-icon {
     width: 200px;
@@ -82,11 +86,19 @@ label {
 
 
 .modal-content {
-    background-color: #666666;   
+    background-color: #ff9900;   
 }
 
 .centered {
     padding: 42%;
     text-align: center;
     
+}
+
+@keyframes example {
+    0%   {background-color:#ffe6e6}
+    25%  {background-color:#ff6666}
+    50%  {background-color:#ff0000}
+    75%  {background-color:#ffb366}
+    100% {background-color:#ff9933}
 }

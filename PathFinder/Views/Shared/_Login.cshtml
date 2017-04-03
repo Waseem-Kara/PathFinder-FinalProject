@@ -7,33 +7,37 @@
 @using (Html.BeginForm("Login", "Account"))
 {
     <div class="container">
-            <div class="panel-heading">
-                <div class="panel-title text-center">
-                    <h1 class="title">Login</h1>
-                </div>
-            </div>
-            <div class="main-login main-center">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Email)</label>
-                        <div class="cols-sm-12">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.Email, new { type = "email", placeholder = "123@abc.com", @class = "input-group-lg form-control" })
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Password)</label>
-                        <div class="cols-sm-12">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                @Html.PasswordFor(m => m.Password, new { id = "password", type = "password", placeholder = "Password", @class = "input-group-lg form-control" })
-                            </div>
-                        </div>
-                    </div>
-                </form>
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title">Login</h1>
             </div>
         </div>
+        <div class="main-login main-center">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Email)</label>
+                    <div class="cols-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            @Html.TextBoxFor(m => m.Email, new { type = "email", placeholder = "123@abc.com", @class = "input-group-lg form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Password)</label>
+                    <div class="cols-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            @Html.PasswordFor(m => m.Password, new { id = "password", type = "password", placeholder = "Password", @class = "input-group-lg form-control" })
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" name="submit" id="submit-button" value="Submit" class="btn btn-primary">Submit</button>
+    </div>
 }
