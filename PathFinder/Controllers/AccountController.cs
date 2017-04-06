@@ -18,7 +18,12 @@ namespace PathFinder.Controllers
         [HttpPost]
         public ActionResult RegisterUser(Account model)
         {
-            if (!ModelState.IsValid) return View("_Registration", model);
+            if (!ModelState.IsValid)
+            {
+                Response.StatusCode = 500;
+                Response.TrySkipIisCustomErrors = true;
+                return View("_Registration", model);
+            }
 
             using (var conn = DatabaseConnection.PathFinderDb)
             {
@@ -35,7 +40,7 @@ namespace PathFinder.Controllers
                 model.Id = d.Get<int>("Id");
             }
 
-            return View("~/Views/Home/Index.cshtml");
+            return new HttpStatusCodeResult(200);
         }
 
         [HttpGet]

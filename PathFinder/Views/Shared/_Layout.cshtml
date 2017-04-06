@@ -74,8 +74,7 @@
                 </div>
                 <div class="modal-body">
                     
-                        </div>
-                
+                </div>
             </div>
         </div>
     </div>
@@ -131,10 +130,9 @@
                 type: "POST"
 
         }).done(function() {
-            
-
-            }).fail(function(error) {
-                
+                $("#myModal").hide();
+            }).fail(function(response,error) {
+                $("#myModal").find(".modal-body").html($("<div></div>").html(response.responseText));
             });
         });
 
