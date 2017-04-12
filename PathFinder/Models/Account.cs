@@ -37,5 +37,6 @@ namespace PathFinder.Models
 
         [Display(Name = "Phone")]
         public string Phone { get; set; }
+        //test
     }
 }
