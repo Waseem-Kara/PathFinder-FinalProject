@@ -22,7 +22,7 @@ namespace PathFinder.Models
         [Display(Name = "Email")]
         [RegularExpression(".+@.+\\..+", ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
-
+        
         [Required(ErrorMessage = "Please emter a password")]
         [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]

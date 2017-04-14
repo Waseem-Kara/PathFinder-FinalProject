@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PathFinder.Models;
 
 namespace PathFinder.Controllers
 {
@@ -24,9 +25,16 @@ namespace PathFinder.Controllers
             return View("Software");
         }
 
+        [HttpGet]
         public ActionResult ProductDescription()
         {
-            return View("_ProductDescription");
+            return PartialView("_ProductDescription");
+        }
+
+        [HttpPost]
+        public ActionResult ProductDescription(Product model)
+        {
+            return View("_ProductDescription", model);
         }
     }
 }

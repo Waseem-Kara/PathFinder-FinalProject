@@ -25,7 +25,7 @@ namespace PathFinder.Controllers
                 return View("_Registration", model);
             }
 
-            using (var conn = DatabaseConnection.PathFinderDb)
+            using (var conn = DatabaseConnection.PathFinderdb)
             {
                 var d = new DynamicParameters(new
                 {
@@ -54,7 +54,7 @@ namespace PathFinder.Controllers
         {
             if (!ModelState.IsValid) return View("~/Views/Home/Index.cshtml", model);
 
-            using (var conn = DatabaseConnection.PathFinderDb)
+            using (var conn = DatabaseConnection.PathFinderdb)
             {
                 var personList = conn.Query<Account>("SELECT * FROM Person").ToList();
                 if (personList.Any(x => x.Email == model.Email && x.Password == model.Password))

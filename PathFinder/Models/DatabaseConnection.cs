@@ -9,6 +9,6 @@ namespace PathFinder.Models
 {
     public static class DatabaseConnection
     {
-        public static IDbConnection PathFinderDb => new SqlConnection("Server=localhost;Database=PathFinderDb;Trusted_Connection=True;");
+        public static IDbConnection PathFinderdb => new SqlConnection("Server=tcp:pathfinder.database.windows.net,1433;Initial Catalog=PathFinderdb;Persist Security Info=False;User ID={PathFinderAdmin};Password={PathFinder123};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
     }
 }

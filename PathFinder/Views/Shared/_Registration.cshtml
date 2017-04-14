@@ -19,66 +19,82 @@
             <div class="main-login main-center">
                 <form class="form-horizontal" id="loginForm">
                     <div class="form-group">
-                        <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Firstname)</label>
+                        <h4>
+                            <i class="fa fa-asterisk" style="color: red"></i>
+                            <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Firstname)</label>
+                        </h4>
+                        <h4>@Html.ValidationMessageFor(m => m.Firstname, "", new {@class = "validation-message"})</h4>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-user fa" aria-hidden="true"></i>
                                 </span>
                                 @Html.TextBoxFor(m => m.Firstname, new {type = "text", placeholder = "First name", @class = "input-group-lg form-control"})
-                                @Html.ValidationMessageFor(m => m.Firstname)
                             </div>
+
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Lastname)</label>
+                        <h4><i class="fa fa-asterisk" style="color: red"></i>
+<label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Lastname)</label></h4>
+                        
+                        <h4>@Html.ValidationMessageFor(m => m.Lastname, "", new {@class = "validation-message"})</h4>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-user fa" aria-hidden="true"></i>
                                 </span>
                                 @Html.TextBoxFor(m => m.Lastname, new {type = "text", placeholder = "Last name", @class = "input-group-lg form-control"})
-                                @Html.ValidationMessageFor(m => m.Lastname)
                             </div>
+
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Email)</label>
+                        <h4><i class="fa fa-asterisk" style="color: red"></i>
+<label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Email)</label></h4>
+                        
+                        <h4>@Html.ValidationMessageFor(m => m.Email, "", new {@class = "validation-message"})</h4>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-envelope fa" aria-hidden="true"></i>
                                 </span>
                                 @Html.TextBoxFor(m => m.Email, new {type = "email", placeholder = "123@abc.com", @class = "input-group-lg form-control"})
-                                @Html.ValidationMessageFor(m => m.Email)
                             </div>
+
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Password)</label>
+                        <h4><i class="fa fa-asterisk" style="color: red"></i>
+<label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Password)</label></h4>
+                       
+                        <h4>@Html.ValidationMessageFor(m => m.Password, "", new {@class = "validation-message"})</h4>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                                 </span>
                                 @Html.PasswordFor(m => m.Password, new {name = "password", id = "password", type = "password", placeholder = "Password", @class = "input-group-lg form-control"})
-                                @Html.ValidationMessageFor(m => m.Password)
                             </div>
+
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.ComparePassword)</label>
+                        <h4><i class="fa fa-asterisk" style="color: red"></i>
+<label class="cols-sm-2 control-label">@Html.LabelFor(m => m.ComparePassword)</label></h4>
+                        
+                        <h4>@Html.ValidationMessageFor(m => m.ComparePassword, "", new {@class = "validation-message"})</h4>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                                 </span>
                                 @Html.PasswordFor(m => m.ComparePassword, new {type = "password", placeholder = "Confirm password", @class = "input-group-lg form-control"})
-                                @Html.ValidationMessageFor(m => m.ComparePassword)
                             </div>
+
                         </div>
                     </div>
                 </form>

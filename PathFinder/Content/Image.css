@@ -1,7 +1,7 @@
 ﻿
 body {
     /*background-color: #e6f2ff;*/
-    background-color: #ff9900;
+    background-color: #0073e6;
 }
 
 .Logo {
@@ -24,7 +24,7 @@ body {
 }
 
 .homepage-box {
-    background-color: grey;
+    background-color: #00134d;
     text-align: center;
     
 }
@@ -45,6 +45,7 @@ body {
 .product-box:hover {
     background-color: #ff4d4d;
     border: 5px solid red;
+    cursor: pointer;
     animation-name: example;
     animation-duration: 6s;
     animation-iteration-count: infinite;
@@ -86,7 +87,7 @@ label {
 
 
 .modal-content {
-    background-color: #ff9900;   
+    background-color: #00134d;   
 }
 
 .centered {
@@ -101,4 +102,9 @@ label {
     50%  {background-color:#ff0000}
     75%  {background-color:#ffb366}
     100% {background-color:#ff9933}
+}
+
+.validation-message {
+    color: #ff8080; 
+    font-family: Exo
 }
