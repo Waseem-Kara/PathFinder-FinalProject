@@ -27,17 +27,28 @@ namespace PathFinder.Controllers
 
             using (var conn = DatabaseConnection.PathFinderdb)
             {
-                var d = new DynamicParameters(new
-                {
-                    model.Firstname,
-                    model.Lastname,
-                    model.Email,
-                    model.Password,
-                    model.Phone
-                });
-                d.Add("Id", model.Id, DbType.Int32, ParameterDirection.InputOutput);
-                conn.Execute("Register", d, commandType: CommandType.StoredProcedure);
-                model.Id = d.Get<int>("Id");
+                var db = new PathFinderdbEntities();
+                var p = new Person();
+                p.FirstName = model.Firstname;
+                p.LastName = model.Lastname;
+                p.Email = model.Email;
+                p.Password = model.Password;
+
+                db.People.Add(p);
+                db.SaveChanges();
+
+                /* var d = new DynamicParameters(new
+                 {
+                     model.Firstname,
+                     model.Lastname,
+                     model.Email,
+                     model.Password
+                     //model.Phone
+                 });
+                 
+                 d.Add("Id", model.Id, DbType.Int32, ParameterDirection.InputOutput);
+                 conn.Execute("Register", d, commandType: CommandType.StoredProcedure);
+                 model.Id = d.Get<int>("Id");*/
             }
 
             return new HttpStatusCodeResult(200);
