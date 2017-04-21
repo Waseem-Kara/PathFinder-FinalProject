@@ -10,16 +10,19 @@ namespace PathFinder.Controllers
     public class ProductController : Controller
     {
         // GET: Product
+        [HttpGet]
         public ActionResult Index()
         {
             return View("Keyboard");
         }
 
+        [HttpGet]
         public ActionResult Accessories()
         {
             return View("Accessories");
         }
 
+        [HttpGet]
         public ActionResult Software()
         {
             return View("Software");
@@ -28,7 +31,7 @@ namespace PathFinder.Controllers
         [HttpGet]
         public ActionResult ProductDescription()
         {
-            return PartialView("_ProductDescription");
+            return View("_ProductDescription", new Product());
         }
 
         [HttpPost]

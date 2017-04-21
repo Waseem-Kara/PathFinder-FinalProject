@@ -1,10 +1,10 @@
-﻿@model PathFinder.Models.Account
+﻿@model PathFinder.Models.Login
     
 @{
     Layout = null;
 }
 
-@using (Html.BeginForm("Login", "Account"))
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
 {
     <div class="container">
         <div class="panel-heading">
@@ -14,22 +14,26 @@
         </div>
         <div class="main-login main-center">
             <form class="form-horizontal">
+                <h4 class="validation-summ">@Html.ValidationMessage("error_message")</h4>
+                <h4>@ViewBag.SuccessMessage</h4>
                 <div class="form-group">
-                    <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Email)</label>
+                    <h4 class="cols-sm-2 control-label">@Html.LabelFor(m => m.Email)</h4>
+                    <h4>@Html.ValidationMessageFor(m => m.Email, "", new {@class = "validation-message"})</h4>
                     <div class="cols-sm-12">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            @Html.TextBoxFor(m => m.Email, new { type = "email", placeholder = "123@abc.com", @class = "input-group-lg form-control" })
+                            @Html.TextBoxFor(m => m.Email, new {type = "email", placeholder = "123@abc.com", @class = "input-group-lg form-control"})
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="cols-sm-2 control-label">@Html.LabelFor(m => m.Password)</label>
+                    <h4 class="cols-sm-2 control-label">@Html.LabelFor(m => m.Password)</h4>
+                    <h4>@Html.ValidationMessageFor(m => m.Password, "", new {@class = "validation-message"})</h4>
                     <div class="cols-sm-12">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            @Html.PasswordFor(m => m.Password, new { id = "password", type = "password", placeholder = "Password", @class = "input-group-lg form-control" })
+                            @Html.PasswordFor(m => m.Password, new {id = "password", type = "password", placeholder = "Password", @class = "input-group-lg form-control"})
                         </div>
                     </div>
                 </div>

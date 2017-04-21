@@ -27,15 +27,15 @@ namespace PathFinder.Controllers
 
             //using (var conn = DatabaseConnection.PathFinderdb)
             //{
-            //    var db = new PathFinderdbEntities();
-            //    var p = new Person();
-            //    p.FirstName = model.Firstname;
-            //    p.LastName = model.Lastname;
-            //    p.Email = model.Email;
-            //    p.Password = model.Password;
+            var db = new PathFinderdbEntities();
+            var p = new Person();
+            p.FirstName = model.Firstname;
+            p.LastName = model.Lastname;
+            p.Email = model.Email;
+            p.Password = model.Password;
 
-            //    db.People.Add(p);
-            //    db.SaveChanges();
+            db.People.Add(p);
+            db.SaveChanges();
 
             //    /* var d = new DynamicParameters(new
             //     {
@@ -45,7 +45,7 @@ namespace PathFinder.Controllers
             //         model.Password
             //         //model.Phone
             //     });
-                 
+
             //     d.Add("Id", model.Id, DbType.Int32, ParameterDirection.InputOutput);
             //     conn.Execute("Register", d, commandType: CommandType.StoredProcedure);
             //     model.Id = d.Get<int>("Id");*/
@@ -57,20 +57,30 @@ namespace PathFinder.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View("_Login", new Account());
+            return View("_Login", new Login());
         }
 
         [HttpPost]
-        public ActionResult Login(Account model)
+        public ActionResult Login(Login model)
         {
-            if (!ModelState.IsValid) return View("~/Views/Home/Index.cshtml", model);
+            if (!ModelState.IsValid)
+            {
+                Response.StatusCode = 500;
+                Response.TrySkipIisCustomErrors = true;
+                return View("_Login", model);
+            }
 
             using (var conn = DatabaseConnection.PathFinderdb)
             {
-                var personList = conn.Query<Account>("SELECT * FROM Person").ToList();
-                if (personList.Any(x => x.Email == model.Email && x.Password == model.Password))
-                    return View("~/Views/Home/Index.cshtml");
-                ModelState.AddModelError("Username", "Username or password field is invalid...");
+                var personList = conn.Query<Login>("SELECT * FROM Person").ToList();
+                if (personList.Any(x => x.Email.Trim() == model.Email && x.Password.Trim() == model.Password))
+                {
+                    TempData["SuccessMessage"] = "Welcome" + model.Email;
+                    return View("_Login");
+                }
+                Response.StatusCode = 500;
+                Response.TrySkipIisCustomErrors = true;
+                ModelState.AddModelError("error_message", "Username or password is invalid...\nPlease try again");
                 return View("_Login", model);
             }
         }

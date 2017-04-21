@@ -24,9 +24,11 @@ body {
 }
 
 .homepage-box {
-    background-color: #00134d;
+    background-color: white;
     text-align: center;
-    
+}
+.homepage-text {
+    color: #00134d;
 }
 .homepage-box:hover {
     border: 2px solid red;
@@ -87,7 +89,7 @@ label {
 
 
 .modal-content {
-    background-color: #00134d;   
+    background-color: #003d99;   
 }
 
 .centered {
@@ -105,6 +107,15 @@ label {
 }
 
 .validation-message {
-    color: #ff8080; 
-    font-family: Exo
+    color: #ff8080;
+    font-weight: bold;
+    font-family: Exo;
+}
+
+
+.validation-summ {
+    color: #ff8080;
+    text-align: center;
+    font-weight: bold;
+    font-family: Exo;
 }

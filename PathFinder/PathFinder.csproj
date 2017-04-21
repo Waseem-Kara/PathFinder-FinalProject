@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\DatabaseConnection.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="PathFindermodel.Context.cs">
       <AutoGen>True</AutoGen>

@@ -79,12 +79,13 @@
         </div>
     </div>
 <div class="container body-content">
-        @RenderBody()
-        
-        <footer id="footer">
-            <p>&copy; @DateTime.Now.Year - Waseem Kara</p>
-        </footer>
-    </div>
+    <h1>@{var message = TempData["AlertMessage"] ?? string.Empty;}</h1>
+    @RenderBody()
+
+    <footer id="footer">
+        <p>&copy; @DateTime.Now.Year - Waseem Kara</p>
+    </footer>
+</div>
 
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -129,7 +130,7 @@
                 contentType: false,
                 type: "POST"
 
-        }).done(function() {
+            }).done(function() {
                 $("#myModal").hide();
             }).fail(function(response,error) {
                 $("#myModal").find(".modal-body").html($("<div></div>").html(response.responseText));
@@ -140,9 +141,12 @@
 
    
     
-    
 </script>
 
-    
+<script type="text/javascript">
+    var message = '@message';
+    if (message)
+        alert(message);
+</script>
 </body>
 </html>
