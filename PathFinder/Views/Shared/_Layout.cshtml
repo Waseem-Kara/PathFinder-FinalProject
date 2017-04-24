@@ -12,6 +12,8 @@
     <link href="@Url.Content("~/Content/Image.css")" rel="stylesheet" type="text/css"/>
     <link href="@Url.Content("~/fonts/font-awesome/css/font-awesome.min.css")" rel="stylesheet"/>
     <script src="@Url.Content("~/Scripts/modernizr-2.6.2.js")"></script>
+    <script src="~/Content/swwetalert/dist/sweetalert.min.js"></script>
+    <link href="~/Content/swwetalert/dist/sweetalert.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 </head>
 <body>
@@ -25,7 +27,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/PathFinderlogo.png")" class="navbar-brand Logo" alt="PathFinder" /><span class="navbar-brand">PathFinder</span></a>
+            <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/PathFinderlogo.png")" class="navbar-brand Logo" alt="PathFinder"/><span class="navbar-brand">PathFinder</span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,14 +46,14 @@
                     </ul>
                 </li>
             </ul>
-                
+
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
                     <ul class="dropdown-menu">
-                        <li><a class="form-popup" data-toggle="modal" href="#myModal" data-url="@Url.Action("Login","Account")">Log in</a></li>
-                        <li><a class="form-popup" data-toggle="modal" href="#myModal" data-url="@Url.Action("RegisterUser","Account")">Sign up</a></li>
+                        <li><a class="form-popup" data-toggle="modal" href="#myModal" data-url="@Url.Action("Login", "Account")">Log in</a></li>
+                        <li><a class="form-popup" data-toggle="modal" href="#myModal" data-url="@Url.Action("RegisterUser", "Account")">Sign up</a></li>
                     </ul>
                 </li>
             </ul>
@@ -65,24 +67,25 @@
     </div><!-- /.container-fluid -->
 </nav>
    
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    
-                </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+
             </div>
         </div>
     </div>
+</div>
 <div class="container body-content">
-    <h1>@{var message = TempData["AlertMessage"] ?? string.Empty;}</h1>
     @RenderBody()
 
     <footer id="footer">
+        
         <p>&copy; @DateTime.Now.Year - Waseem Kara</p>
     </footer>
 </div>
@@ -91,62 +94,85 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
 <script>
-
-    $(document).ready(function() {
-
-        //Load modal
-        $(document).on("click", ".form-popup", function () {
-
-            var $ele = $(this);
-            var $modal = $("#myModal");
-
-            $.ajax({
-                url: $ele.data("url"),
-                type:"GET"
-               
-            }).done(function (data) {
-
-                $modal.find(".modal-body").html($("<div></div>").html(data));
-
-            }).fail(function(error) {
-                //do something with it
-            });
-
-
-        });
-
-        //Submit modal
-        $(document).on("click", "#submit-button", function () {
-
-            //if ($("username").val() === undefined) return null;
-
-            var $form = $("#myModal").find(".modal-body").find("form")[0];
-            var formData = new FormData($form);
-
-            $.ajax({
-                url: $("#myModal").find(".modal-body").find("form").attr("action"),
-                data: formData,
-                processData: false,
-                contentType: false,
-                type: "POST"
-
-            }).done(function() {
-                $("#myModal").hide();
-            }).fail(function(response,error) {
-                $("#myModal").find(".modal-body").html($("<div></div>").html(response.responseText));
-            });
-        });
-
+    @*Start of reference: (Sampson, 2009)*@
+    $body = $("body");
+    $(document).on({
+        ajaxStart: function () { $body.addClass("loading"); },
+        ajaxStop: function () { $body.removeClass("loading"); }
     });
+    @*End of reference: (Sampson, 2009)*@
 
-   
-    
-</script>
+    $(document)
+        .ready(function () {
 
-<script type="text/javascript">
-    var message = '@message';
-    if (message)
-        alert(message);
+            //Load modal
+            $(document)
+                .on("click",
+                    ".form-popup",
+                    function () {
+
+                        var $ele = $(this);
+                        var $modal = $("#myModal");
+
+                        $.ajax({
+                            url: $ele.data("url"),
+                            type: "GET"
+
+                        })
+                            .done(function (data) {
+
+                                $modal.find(".modal-body").html($("<div></div>").html(data));
+
+                            })
+                            .fail(function (error) {
+                                //do something with it
+                            });
+
+
+                    });
+
+
+            //Submit modal
+            $(document)
+                .on("click",
+                    "#submit-button",
+                    function () {
+
+                        //if ($("username").val() === undefined) return null;
+
+                        var $form = $("#myModal").find(".modal-body").find("form")[0];
+                        var formData = new FormData($form);
+
+                        $.ajax({
+                            url: $("#myModal").find(".modal-body").find("form").attr("action"),
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            type: "POST"
+
+
+                        })
+                            .done(function () {
+                                $("#myModal").modal("toggle");
+                                //Sweet alert function
+                                swal({
+                                    title: "Success",
+                                    text: "Success!",
+                                    type: "success",
+                                    animation: "slide-from-top"
+                                });
+
+                            })
+                            .fail(function (response, error) {
+                                $("#myModal").find(".modal-body").html($("<div></div>").html(response.responseText));
+                            });
+                    });
+
+        });
+
+
 </script>
+    <div class="loader"></div>
+
 </body>
 </html>

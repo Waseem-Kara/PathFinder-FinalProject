@@ -48,7 +48,7 @@ body {
     background-color: #ff4d4d;
     border: 5px solid red;
     cursor: pointer;
-    animation-name: example;
+    animation-name: product;
     animation-duration: 6s;
     animation-iteration-count: infinite;
 }
@@ -77,11 +77,11 @@ label {
     color: white;
 }
 
-#footer {
+/*#footer {
    position:absolute;
    bottom:0px;
    height:40px;
-}
+}*/
 
 #chevron-right {
     color: red;
@@ -98,7 +98,7 @@ label {
     
 }
 
-@keyframes example {
+@keyframes product {
     0%   {background-color:#ffe6e6}
     25%  {background-color:#ff6666}
     50%  {background-color:#ff0000}
@@ -119,3 +119,29 @@ label {
     font-weight: bold;
     font-family: Exo;
 }
+
+.icon-bar {
+    background-color:white;
+}
+
+
+/*Start reference: (Sampson, 2009)*/
+.loader {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.7) url('ajax-loader.gif') 50% 50% no-repeat;
+}
+
+body.loading {
+    overflow: hidden;   
+}
+
+body.loading .loader {
+    display: block;
+}
+/*End of reference: (Sampson, 2009)*/

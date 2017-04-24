@@ -70,6 +70,10 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -122,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AddUserIcon.png" />
+    <Content Include="Content\ajax-loader.gif" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Image.css" />
@@ -129,6 +134,9 @@
     <Content Include="Content\Keyboard-icon.png" />
     <Content Include="Content\PathFinderlogo.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\swwetalert\dist\sweetalert-dev.js" />
+    <Content Include="Content\swwetalert\dist\sweetalert.css" />
+    <Content Include="Content\swwetalert\dist\sweetalert.min.js" />
     <Content Include="fonts\font-awesome\css\font-awesome.css" />
     <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -265,6 +273,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PathFinderTest\PathFinderTest.csproj">
+      <Project>{b3a7963a-6989-4782-87c0-9298fce92412}</Project>
+      <Name>PathFinderTest</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
