@@ -80,7 +80,7 @@ namespace PathFinder.Controllers
                 }
                 Response.StatusCode = 500;
                 Response.TrySkipIisCustomErrors = true;
-                ModelState.AddModelError("error_message", "Username or password is invalid...\nPlease try again");
+                ModelState.AddModelError("error_message", "Username or password is not recognised...\nPlease try again");
                 return View("_Login", model);
             }
         }

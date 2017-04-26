@@ -20,7 +20,7 @@ namespace PathFinder.Models
         [Required(ErrorMessage = "Please emter an email address")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
-        [RegularExpression(".+@.+\\..+", ErrorMessage = "Please enter a valid email address")]
+        [RegularExpression(".+@.+\\..+", ErrorMessage = "Please follow this format 123@abc.xyz")]
         public string Email { get; set; }
         
         [Required(ErrorMessage = "Please emter a password")]
